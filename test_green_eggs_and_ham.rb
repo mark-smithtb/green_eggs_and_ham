@@ -14,24 +14,20 @@ class GreenEggsAndHamTest < MiniTest::Test
   end
 
   def test_02_all_unique_words_sorted
-    skip
     expected = %w(a am and anywhere do eggs green ham here house i in
       like mouse not or sam sam-i-am that them there with would you)
     assert_equal expected, @book.sorted_unique_words
   end
 
   def test_03_count_of_words_less_than_four_letters
-    skip
     assert_equal 59, @book.number_of_words_shorter_than(4)
   end
 
   def test_04_longest_word
-    skip
     assert_match /Sam-I-am/i, @book.longest_word
   end
 
   def test_05_all_unique_words_and_frequency
-    skip
     expected = {
         "i" => 15, "am" => 2, "sam" => 2, "that" => 3,
         "sam-i-am" => 6, "do" => 11, "not" => 13, "like" => 15,
@@ -44,13 +40,19 @@ class GreenEggsAndHamTest < MiniTest::Test
   end
 
   def test_06_how_many_stanzas
-    skip
     assert_equal 6, @book.stanzas.count
   end
 
   def test_07_line_count_should_not_include_blanks
-    skip
     assert_equal 19, @book.lines.count
+  end
+
+  def test_08_puncuation_count
+    assert_equal 29, @book.punctuation.count
+  end
+
+  def test_09_most_frequent_line
+    assert_match /I do not like green eggs and ham./i, @book.most_frequent_line
   end
 
   def self.test_order
